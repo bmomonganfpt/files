@@ -1,0 +1,97 @@
+Exercise
+
+* A table to contain the auctioneers and bidders (Accounts)
+* A table to contain the auctioned items (items-instead of products)
+* A table to contain the bidding transactions (Bids)
+* A DB procedure that can create/update accounts
+	- Making sure that email address is unique
+* A DB procedure that can create/update auctioned items
+	- Can specify start and end date of auction for each item
+* A DB procedure that can create and update bids
+	- Making sure that each bidder will only have 1 transaction for every item they bid on 
+* A view that shows all the auctioned items which are open for biding
+* A view that shows the highest bidder for each auctioned items. 
+
+TABLES
+	* User
+	* Item 
+
+	User
+		+ user_id
+		+ user_email
+		+ user_name
+		+ user_pw
+
+	Item 
+		+ item_id
+		+ item_name
+		+ item_description
+		+ start_date
+		+ end_date
+		+ start_price
+		+ status
+		+ user_id
+
+	Bid
+		+ user_id
+		+ item_id
+		+ bid_price
+		+ timestamp
+
+
+PROCEDURES
+	
+	Create Account
+		1. Check if email is unique
+		2. Set user password 
+		3. check if valid password
+		4. confirm password
+	
+	Update Account
+		1. if email ang i change, check if email is unique
+		2. if password, check if valid
+				2.1 enter old password, check if sakto
+				2.2 enter new password
+				2.3 confirm new password
+				2.4 if successful, logout
+		3. save updates
+
+	Create Auctioned Item
+		1. Set 
+				- item_name
+				- item_description
+				- current_price
+		2. Equate start_date to current date (real life)
+		3. Set end_date (ff. maximum rules)
+
+	Update Auctioned Item
+		1. Choose field to update
+		2. Save updated information
+
+
+
+	Create Bid
+		1. Create new Entry in Bid Table
+				1.1 Pick item to bid
+				1.2 Set bid amount
+		2. Update Current Price of Item 
+
+	Update Bid
+		1. Search ang bid by user_id and item_id
+		2. Update bid_amount
+
+VIEWS
+
+	Show all auctioned items
+
+
+
+	Show the highest bidder
+
+
+
+
+
+Notes:
+	- Highest bid na wala na lapas sa end date
+	- Ang bid_amount ra jud ang i update

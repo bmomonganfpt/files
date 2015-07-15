@@ -1,0 +1,85 @@
+I. Introduction to MVC
+
+Model View and Controller (MVC)
+
+very common set-up of MVC
+
+Servlet 
+	= gets the request parameters and passes it to the bean
+	= gets the results from the bean and formats it to HTML
+Businesss Service Bean
+	= the bean retrieves things from the database and returns response data 
+JSP 
+	= handels the decorating of the results
+
+Steps:
+1. Servlet gets the request parameters to the Bean
+2. Bean works data processing to the Database
+3. Results are passed to JSP 
+4. JSP handles the formatting of HTML, CSS
+5. JSR passes the results to the user 
+
+MVC..
+
+C = controller; controls everything;
+	it is the Servlet
+	orchestrates how the flow of control can happen
+	pwede man daghan ug beans and daghan ug JSP 
+	// pwede man pud daghan servelts pero dapat naa jud usa ka thing na mudawat sa input
+
+M = model
+	this is the business service, the Bean 
+	getting the data, providing the data, and being the data itsef
+
+V = view
+	renders the data into a form that is understandable
+	User Interface
+
+why MVC?
+	* controller is separated from the model.
+	* View is separated from the model 
+	* View is separaed from the controller. 
+
+============================================
+
+STEPS IN SETUPING ORACLE
+
+
+1. Reboot PC
+2. Enable Internal thingy
+3. Open VMware 
+4. Open Cent OS given by Sir Rey
+5. Username: 
+
+
+
+ifconfig
+
+save ip address
+	Ex: inet addr:10.192.21.23
+
+
+
+
+STRUTS Setup
+
+1. New > Maven Project
+2. Select maven-archetype-webapp
+3. Next > Next > Finish
+4. Specify Dependencies 
+5. Adto sa Java Resources then add packages yeah 
+
+
+STEPS IN CONFIGURING STRUTS
+
+
+clean install tomcat:run
+
+
+	// mu listen sa mga incoming requests
+
+	<listener>
+		<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+	</listener>
+
+

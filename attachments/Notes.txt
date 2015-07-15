@@ -1,0 +1,374 @@
+deepCopy and shallowCopy
+
+
+	deepCopy = sundon nia ang structure og elements (pass by value)
+	shallowCopy = sundon nia ang structure ra (mag point ra cya sa memory address pass by reference)
+
+		list a = []
+		list b = a
+		b = [lalaa]
+		// ma change na c a
+
+	https://www.cs.utexas.edu/~scottm/cs307/handouts/deepCopying.html
+
+
+Construct vs Method
+
+	Constructor
+		constructor must be the same name as your class
+		wala cyay return
+		maka define sa field every time mag new
+
+	Method
+		performs operations on that particular object
+		naay return type
+
+	constructor could be a method but a method can never be a constructor
+
+
+what if ang access modifier sa main method kay himuon nimong private?
+	cannot be because dili cya makita sa JVM
+
+
+if walay static ang main 
+
+	static = doesn't belong to the object but it belongs to class 
+	dili kita ang JVM sa main method kung dili static
+	so para kita cya kelangan nimo i static
+
+
+interface
+	
+	can only be public or default
+
+class
+
+	ang class can only be public or abstract
+
+* nganung kelangan man ang string[] args sa parameter sa main()?
+	mao jud to ang main signature sa JVM 
+	naa jud nay String[] na argument 
+
+
+Note: dili ka ka override ug method in the same class
+
+	override? i change ang implementation sa sud
+	overload? same name, different parameters
+
+
+import the same package
+
+	import lala
+	import lala
+
+	ang first ra na iyang i-import
+
+* unsay difference sa "instance of" and "getClass()"
+
+	instanceof : operator nga mu return ug boolean 
+	getClass() : method
+
+	getClass() only gives equality if two objects belong to same class whereas instanceOf works for subtype also.
+
+
+* static block 
+	- pinaka unang i-execute even before a constructor
+	- http://www.jusfortechies.com/java/core-java/static-blocks.php
+
+
+* Kung naa kay try kelangan bah catch jud ba ang sunod?
+	Dili.. pwede ra
+
+	try { } catch { }
+	try { } finally { }
+
+* checked and unchecked exceptions
+
+	checked: i sud jud ug try catch block, check cya daan before ka ka run so during compile time
+
+	unchecked: unexpected exceptions thrown during run time
+		indexOutOfBounds 
+
+* what is the difference between an exception and an error
+
+	exceptions = can be handled by the programmer pa like u try catch it
+
+	errors = are irrecoverable like MemoryOverFlow dili na cya ma handle sa programmer 
+
+* create a custom exception
+	
+	as long as u extend a class from the Exception class
+
+	any class that extends from the Excpetion class (LISCOV)
+
+* when should we use try catch block and use throws 
+
+	throws 
+
+		kung maghimo kag imuhang library para ang user makakuha cya sa exception
+		if ok ra ka na mu undang na cya
+
+	try catch 
+
+		kung ganahan ka na mu padayun pa cya no matter what
+
+* kung naa kay finally na block i-execute jud dapat ang naa sa sud ana na block 
+	
+	i-execute na nia ang finally as long as the program is still running
+
+* what if before sa finally kay naay system.exit(), mu execute ba gihapon?
+	
+	dili na kay wala na man nag run ang program 
+
+* why multiple inheritance is not accpeted in JAva?
+	
+	makuha nia ang diamond pattern
+
+			/ \ 
+			\ /
+
+* what is an abstract class?
+
+	abstract class is a partial implementation of what a class an do, it cannot be instantiated 
+	existing idea or a thought but doesn't have a concrete physical existence
+
+* interface
+
+	defines what an object can do
+	only defines method 
+	dili nimo ma declare na private na method
+
+* encapsulation
+	
+	data hiding implementation to restrics its accesors 
+
+* abstraction
+
+	only showing the functionality but hiding the implementation
+
+* overriding 
+	happens between the base class and the subclass
+	re-implementing the method of the base class
+
+* overloading 
+	overloading happens inside one class
+	methods w/ the same name but differrent parameters
+
+* how to prevent a method in the base class from being overriding in the subclass
+	add a final keyword sa method sa base class
+
+
+* how to override main method 
+
+	static methods cannot be overriden 
+
+* final vs. static
+
+	final dili na ma change
+	static = dili gihapon ma change pero ma access na imong method bisan wala pa na instantiate
+
+* difference between the interface and abstract class
+	
+	interface: full abstraction, constant fields
+	abstract: partial abstraction, normal fields 
+
+* when to use abstract class and when to use interface?
+
+	it's a matter of is-a and can do
+	abstract class : is-a if subclass and abstract class have strong relationship
+	interface: if the subclass can do everything the methods inside the interface
+
+============================================================================================================
+
+OOP - SOLID Keywords
+
+* OOP Principles
+
+	Encapsulation 
+		- data-hidig
+
+	Abstraction
+		- abstrace, interface
+		- put same behavior in one class
+
+	Polymorphism
+		- ability of an object to behave as if it were another class
+		- overriding
+		- overloading
+
+	Inheritance
+		- extends, implements 
+		- focus more on reusabiliy 
+
+* Why do we need getters and setters rather than just making everything public  
+		- to prevent outside classes from accessing raw data 
+		- By forcing everybody to call a setter method, we can protect the objects from unacceptable changes of variable values
+
+
+public 
+	class 
+	child
+	package
+	world
+proteced
+	class
+	child
+	package
+default
+	class
+	child
+private
+	class
+
+
+ALL INTERFACES have PUBLIC methods
+	default in iterfaces are public 
+
+accessing static values in an unstatic method is not possible
+
+non-static variables for non-static methods (they belong to the object itself)
+
+static variables for static methods (they belong to the class)
+
+SOLID PRINCIPLES
+
+	S = Single Responsibility Principle
+
+	O = Open-Close Principle
+		open for extension closed for modification 
+
+	L = Liskov Substitution Principle
+
+		subclasses should be able to do the things the parent class can do no matter what implementation u add
+
+
+	I = Interface Segregation
+
+		avoidance of making a god-like interface
+		interfaces must follow a single responsibiity 
+
+
+	D = Dependeny Inversion
+
+		high level modules should not depend on low level modules but on abstraction
+
+		kung mu himo kag change na kelangan ma reflect sa tanan, so u have to have an interface where everyone can depend on so that whatever changes done on it will reflect on all the derived classes 
+
+
+COLLECTIONS
+	what is the collection API?
+		- data structure that can hold several related data
+		- major interfaces: set, list, map
+
+	Set
+		- unique collection of unordered elements
+
+	List 
+
+		- ordered collection, can contain duplicate elements
+
+	Map
+
+		- collection that maps keys to values
+
+
+	in a set and list u can access data by index
+	in a map, u can access it by its keys
+
+
+SET
+
+	major implementations: 
+		- HashSet
+		- TreeSet
+
+	HASHSET
+		How does hashset stores data 
+		it implements bucketing strategy wherein u use a hashtable
+
+	TREESET
+
+		how does tree set orders elements
+			for ABC and 123s ni inherit ra cya sa normal sorting based or Red Black
+
+			for non normal
+				u must extend Comparable and implement compartor
+
+				Comparable and comparator
+					comparable: compareTO(o)
+						when there is only one way to sort ur data 
+					
+
+
+					comparator: compare(o1, o2)
+						when there are different ways to sort ur data 
+
+				both retursn 
+					1	>		this < obj = -1
+					0 	=		this == obj = 0
+					-1	<		this > obj  = 1
+
+LIST
+
+	- arraylist
+	- linkedlist
+
+	ARRAYLIST
+		- uses primitive array
+		- index-based collection 
+		- accessing: use an index
+		- better for reading 
+		- complexity : 
+			accessing: o(1)
+			insetion: o(n)
+			searching: o(n)
+
+	LINKEDLIST
+		- node-based implementation 
+		- accessing: traversal
+		- better for modification 
+		- complexity:
+			insertion: o(1)
+			search: o(n)
+			accessing: o(n)
+
+	VECTOR
+		- thread-safe version of linkedlist 
+		- synchronized
+
+	how is the array class different from the arraylist 
+		- array : static , dili mu grow, specific size
+			if kibaw ka nga dili na mu grow gamit ug arraylist
+		- arraylist: dynamic, mu grow
+			arraylist works only on Objects not on primitives
+
+	wrapperClasses
+		int - Integer
+		double - Double
+
+		main purposes is for the implememntation for the Collections kay mao ra man ilang i dawat
+
+		collections performs autoboxing 
+
+MAP
+
+	- HashMap
+	- TreeMap
+
+	HASHMAP
+
+		HashMap vs HashTable
+			- HT does not allow null keys and null values 
+			- HM - nonsynchronized
+			- HT - synchronized
+
+	TREEMAP
+
+		sorted ang keys 
+
+
+
+
+
+
+hashing algorithm na sa ra pwede ang mabutang kay gitawag ug CLOSED 
